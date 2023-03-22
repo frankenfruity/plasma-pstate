@@ -49,8 +49,7 @@ comfort of your graphical interface using point and click or tap interactions
 even in cases that a keyboard isn't available.
 
 ## How to install
-First of all you need to be in sudoers' group. After that you can just clone 
-the code and install it using the following commands:
+First of all you need to be in sudoers' group. After that you can just clone the code and install it using the following commands:
 
 ```
 git clone https://github.com/frankenfruity/plasma-pstate
@@ -59,12 +58,19 @@ mkdir build
 cd build
 cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr -DCMAKE_BUILD_TYPE=Release ..
 make
-make install
+sudo make install
 
 cd ..
-cp ./src/plasma_pstate.policy /usr/share/polkit-1/actions/
-chmod 644 /usr/share/polkit-1/actions/plasma_pstate.policy
+sudo cp ./src/plasma_pstate.policy /usr/share/polkit-1/actions/
+sudo chmod 644 /usr/share/polkit-1/actions/plasma_pstate.policy
 ```
+
+You need a number of build time dependencies. On Ubuntu, these can be installed using:
+
+```
+sudo apt-get install -y qtdeclarative5-dev extra-cmake-modules libkf5plasma-dev libkf5i18n-dev cmake
+```
+
 
 **Notice:** If your processor doesn't support EPP(ie older generations without 
 HWP), then you need also to install the ``x86_energy_perf_policy`` which (in 

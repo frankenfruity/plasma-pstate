@@ -164,6 +164,8 @@ RowLayout {
         }
 
         background: Rectangle {
+            implicitWidth: combobox.width
+            implicitHeight: combobox.height
             color: Qt.rgba(0, 0, 0, 0)
             border.color: theme.highlightColor
             border.width: combobox.down || combobox.customHovered ? 1 : 0
